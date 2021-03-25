@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-#if !SILVERLIGHT
+#if (!SILVERLIGHT && !UNITY)
 using System.Data;
 #endif
 using System.Globalization;
@@ -444,7 +444,7 @@ namespace fastJSON
             object o = new JsonParser(json, _params.AllowNonQuotedKeys).Decode(type);
             if (o == null)
                 return null;
-#if !SILVERLIGHT
+#if ( !SILVERLIGHT && !UNITY )
             if (type != null)
             {
                 if (type == typeof(DataSet))
@@ -767,7 +767,7 @@ namespace fastJSON
                                 // what about 'else'?
                                 break;
                             case myPropInfoType.ByteArray: oset = Convert.FromBase64String((string)v); break;
-#if !SILVERLIGHT
+#if ( !SILVERLIGHT && !UNITY )
                             case myPropInfoType.DataSet: oset = CreateDataset((Dictionary<string, object>)v, globaltypes); break;
                             case myPropInfoType.DataTable: oset = CreateDataTable((Dictionary<string, object>)v, globaltypes); break;
                             case myPropInfoType.Hashtable: // same case as Dictionary
@@ -964,7 +964,7 @@ namespace fastJSON
             return col;
         }
 
-#if !SILVERLIGHT
+#if ( !SILVERLIGHT && !UNITY )
         private DataSet CreateDataset(Dictionary<string, object> reader, Dictionary<string, object> globalTypes)
         {
             DataSet ds = new DataSet();

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-#if !SILVERLIGHT
+#if ( !SILVERLIGHT && !UNITY )
 using System.Data;
 #endif
 using System.Globalization;
@@ -133,7 +133,7 @@ namespace fastJSON
                 WriteStringDictionary((IDictionary)obj);
             else if (obj is IDictionary)
                 WriteDictionary((IDictionary)obj);
-#if !SILVERLIGHT
+#if ( !SILVERLIGHT && !UNITY )
             else if (obj is DataSet)
                 WriteDataset((DataSet)obj);
 
@@ -311,7 +311,7 @@ namespace fastJSON
             _output.Append(dt.Second.ToString("00", NumberFormatInfo.InvariantInfo));
         }
 
-#if !SILVERLIGHT
+#if ( !SILVERLIGHT && !UNITY )
         private DatasetSchema GetSchema(DataTable ds)
         {
             if (ds == null) return null;
