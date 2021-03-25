@@ -96,11 +96,6 @@
     <Compile Include="JsonSerializer.cs" />
     <Compile Include="JSON.cs" />
     <Compile Include="JsonParser.cs" />
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-      <DependentUpon>Settings.settings</DependentUpon>
-    </Compile>
     <Compile Include="Reflection.cs" />
     <Compile Include="SafeDictionary.cs" />
   </ItemGroup>
